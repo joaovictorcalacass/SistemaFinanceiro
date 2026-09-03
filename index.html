@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Controle Financeiro Familiar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">R$</div>
+
+            <div>
+                <strong>Controle</strong>
+                <span>Financeiro Familiar</span>
+            </div>
+        </div>
+
+        <nav>
+
+            <button class="nav-button active" data-page="inicio">
+                <span>⌂</span>
+                Início
+            </button>
+
+            <button class="nav-button" data-page="lancamentos">
+                <span>＋</span>
+                Lançamentos
+            </button>
+
+            <button class="nav-button" data-page="cartoes">
+                <span>▣</span>
+                Cartões
+            </button>
+
+            <button class="nav-button" data-page="contas">
+                <span>▤</span>
+                Contas fixas
+            </button>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            V1<br>
+            Dados salvos neste navegador
+        </div>
+
+    </aside>
+
+
+    <!-- CONTEÚDO -->
+    <main>
+
+        <!-- CABEÇALHO -->
+        <header class="topbar">
+
+            <div>
+
+                <p class="subtitle">
+                    CONTROLE DA FAMÍLIA
+                </p>
+
+                <h1 id="pageTitle">
+                    Visão geral
+                </h1>
+
+            </div>
+
+
+            <div class="month-selector">
+
+                <button id="previousMonth">
+                    ‹
+                </button>
+
+                <span id="monthLabel">
+                    Setembro / 2026
+                </span>
+
+                <button id="nextMonth">
+                    ›
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ========================= -->
+        <!-- INÍCIO -->
+        <!-- ========================= -->
+
+        <section id="inicio" class="page active">
+
+            <!-- CARDS -->
+            <div class="summary-cards">
+
+                <div class="summary-card">
+
+                    <div class="card-label">
+                        💰 Entradas
+                    </div>
+
+                    <div id="totalEntradas" class="card-value">
+                        R$ 0,00
+                    </div>
+
+                    <div class="card-description">
+                        neste mês
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="card-label">
+                        🔴 Saídas
+                    </div>
+
+                    <div id="totalSaidas" class="card-value">
+                        R$ 0,00
+                    </div>
+
+                    <div class="card-description">
+                        neste mês
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card highlight">
+
+                    <div class="card-label">
+                        🟢 Sobra líquida
+                    </div>
+
+                    <div id="sobraLiquida" class="card-value">
+                        R$ 0,00
+                    </div>
+
+                    <div class="card-description">
+                        entradas − saídas
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DUAS COLUNAS -->
+            <div class="two-columns">
+
+
+                <!-- DESPESAS -->
+                <section class="panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            Despesas do mês
+                        </h2>
+
+                    </div>
+
+
+                    <div id="resumoDespesas">
+
+                    </div>
+
+                </section>
+
+
+                <!-- AÇÕES -->
+                <section class="panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            Ações rápidas
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        class="button primary full"
+                        data-action="novo-gasto">
+
+                        ＋ Adicionar gasto
+
+                    </button>
+
+
+                    <button
+                        class="button secondary full"
+                        data-action="nova-entrada">
+
+                        ＋ Adicionar entrada
+
+                    </button>
+
+                </section>
+
+            </div>
+
+
+            <!-- ÚLTIMOS LANÇAMENTOS -->
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Últimos lançamentos
+                    </h2>
+
+                    <button
+                        class="text-button"
+                        data-page="lancamentos">
+
+                        Ver todos
+
+                    </button>
+
+                </div>
+
+
+                <div id="ultimosLancamentos">
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- LANÇAMENTOS -->
+        <!-- ========================= -->
+
+        <section id="lancamentos" class="page">
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Lançamentos
+                    </h2>
+
+                    <div class="button-group">
+
+                        <button
+                            class="button primary"
+                            data-action="novo-gasto">
+
+                            ＋ Gasto
+
+                        </button>
+
+                        <button
+                            class="button secondary"
+                            data-action="nova-entrada">
+
+                            ＋ Entrada
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div id="listaLancamentos">
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- CARTÕES -->
+        <!-- ========================= -->
+
+        <section id="cartoes" class="page">
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Cartões
+                    </h2>
+
+                    <button
+                        class="button primary"
+                        id="adicionarCartao">
+
+                        ＋ Cartão
+
+                    </button>
+
+                </div>
+
+
+                <p class="help-text">
+
+                    O sistema utiliza o valor real quando
+                    preenchido. Caso contrário, utiliza a previsão.
+
+                </p>
+
+
+                <div id="listaCartoes">
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- CONTAS FIXAS -->
+        <!-- ========================= -->
+
+        <section id="contas" class="page">
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Contas fixas
+                    </h2>
+
+                    <button
+                        class="button primary"
+                        id="adicionarConta">
+
+                        ＋ Conta
+
+                    </button>
+
+                </div>
+
+
+                <p class="help-text">
+
+                    O valor padrão pode ser mantido enquanto
+                    você altera o valor deste mês.
+
+                </p>
+
+
+                <div id="listaContas">
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- MODAL -->
+<!-- ========================= -->
+
+<div
+    id="modal"
+    class="modal hidden">
+
+    <div class="modal-content">
+
+        <button
+            id="fecharModal"
+            class="close-button">
+
+            ×
+
+        </button>
+
+
+        <h2 id="modalTitle">
+            Novo gasto
+        </h2>
+
+
+        <form id="modalForm">
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
